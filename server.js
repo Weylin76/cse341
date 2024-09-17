@@ -5,6 +5,7 @@ const indexRouter = require("./routes/index");
 
 // Use the routes
 app.use("/", indexRouter);
+app.use("/dogs", indexRouter);
 
 //Start the server
 app.listen(port, () => {
