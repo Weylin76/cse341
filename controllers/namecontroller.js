@@ -1,3 +1,3 @@
 exports.getName = (req, res) => {
-    res.send("Cocoa Sam Douglas")
+    res.send("Cocoa Douglas")
 }
