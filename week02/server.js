@@ -4,11 +4,11 @@ const app = express();
 const port = process.env.PORT || 8080;
 const indexRouter = require("./routes/index");
 
-// Serve static files from the 'public' directory
+// Uses current working directory and joins public to get to common files
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Use the router for "/"
-app.use("/", indexRouter); // This should mount the `/professional` route defined in indexRouter
+app.use("/", indexRouter); 
 
 // Start the server
 app.listen(port, () => {
