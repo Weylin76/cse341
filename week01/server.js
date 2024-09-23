@@ -1,13 +1,16 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
+const dotenv = require("dotenv");
 const indexRouter = require("./routes/index");
+
+dotenv.config(); // Load the .env file content into process.env
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// MongoDB connection URI
-const mongoURI = "mongodb+srv://weylin76:Dougwe_01@cluster0.dgdrh.mongodb.net/demo"; 
+// MongoDB connection URI from .env file
+const mongoURI = process.env.MONGO_URI;
 
 // Connect to MongoDB
 mongoose.connect(mongoURI, {
