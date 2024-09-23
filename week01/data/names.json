@@ -1,0 +1,23 @@
+[
+    {
+        "firstName": "Tori", 
+        "lastName": "Douglas", 
+        "email": "tori@hotmail.com", 
+        "favoriteColor": "blue", 
+        "birthday": "1977-08-24"
+    },
+    {
+        "firstName": "Bryce", 
+        "lastName": "Douglas", 
+        "email": "Bryce@hotmail.com", 
+        "favoriteColor": "maze", 
+        "birthday": "2001-04-23"
+    },
+    {
+        "firstName": "Ethan", 
+        "lastName": "Douglas", 
+        "email": "Ethan@hotmail.com", 
+        "favoriteColor": "Green", 
+        "birthday": "2007-01-12"
+    }
+]
