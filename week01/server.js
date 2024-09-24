@@ -4,13 +4,13 @@ const path = require("path");
 const dotenv = require("dotenv");
 const indexRouter = require("./routes/index");
 
-dotenv.config(); // Load the .env file content into process.env
+dotenv.config(); // use env file for secure connection
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000; //use website port or local host
 
 // MongoDB connection URI from .env file
-const mongoURI = process.env.MONGO_URI;
+const mongoURI = process.env.MONGO_URI; 
 
 // Connect to MongoDB
 mongoose.connect(mongoURI, {
