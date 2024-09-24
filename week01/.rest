@@ -3,5 +3,3 @@ GET http://localhost:3000 HTTP/1.1
 ###
 GET https://cse341-bv9w.onrender.com HTTP/1.1
 
-###
-GET https://cse341-bv9w.onrender.com/dogs HTTP/1.1
