@@ -79,7 +79,7 @@ const updateContact = async (req, res) => {
             return res.status(404).json({ message: "Contact not found" });
         }
 
-        res.status(200).json({
+        res.status(204).json({
             message: "Contact updated successfully",
             data: contact
         });
