@@ -2,13 +2,13 @@
 //***             LOCAL TESTING                          ***
 //**********************************************************
 
-//Home Route
+###Home Route
 GET http://localhost:3000 HTTP/1.1
 
-//Get all contacts locally
+###Get all contacts locally
 GET http://localhost:3000/contacts HTTP/1.1
 
-//Get one contact
+###Get one contact
 GET http://localhost:3000/contacts/66f0b812a505f022f12336db HTTP/1.1
 
 //**********************************************************
