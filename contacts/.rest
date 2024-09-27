@@ -1,5 +1,25 @@
+//**********************************************************
+//***             LOCAL TESTING                          ***
+//**********************************************************
+
+//Home Route
 GET http://localhost:3000 HTTP/1.1
 
-###
-GET https://cse341-bv9w.onrender.com HTTP/1.1
+//Get all contacts locally
+GET http://localhost:3000/contact HTTP/1.1
 
+//Get one contact
+GET http://localhost:3000/contact/66f0b812a505f022f12336db HTTP/1.1
+
+//**********************************************************
+//***              Production Render.com                 ***
+//**********************************************************
+
+###  Render shows Tori Douglas (home route)
+GET https://cse341-personal-page.onrender.com/ HTTP/1.1
+
+### Render shows list of all contacts
+GET  https://cse341-personal-page.onrender.com/contact HTTP/1.1
+
+### Render show one contact (Ethan)
+GET  https://cse341-personal-page.onrender.com/contact/66f0b812a505f022f12336db HTTP/1.1
