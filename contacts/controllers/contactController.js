@@ -22,3 +22,32 @@ exports.getPersonById = async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 };
+
+// Update an existing contact
+exports.updateContact = async (req, res) => {
+    const contactId = req.params.id;
+    const updatedData = req.body;
+
+    try {
+        // Use `findByIdAndUpdate` to update the document directly
+        const contact = await Person.findByIdAndUpdate(
+            contactId,
+            { $set: updatedData }, // Only set the fields present in the request body
+            { new: true, runValidators: true } // Return the updated document
+        );
+
+        if (!contact) {
+            return res.status(404).json({ message: "Contact not found" });
+        }
+
+        res.status(200).json({
+            message: "Contact updated successfully",
+            data: contact
+        });
+    } catch (error) {
+        res.status(500).json({
+            message: "Error updating contact",
+            error: error.message
+        });
+    }
+};

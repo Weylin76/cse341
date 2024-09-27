@@ -7,7 +7,13 @@ const indexRouter = require("./routes/index");
 dotenv.config(); // use env file for secure connection
 
 const app = express();
-const port = process.env.PORT || 3000; //use website port or local host
+const port = process.env.PORT || 3000; // use website port or local host
+
+// Middleware to parse incoming JSON requests
+app.use(express.json()); // <-- This is the missing part
+
+// Optionally, if you're dealing with form data (not just JSON):
+// app.use(express.urlencoded({ extended: true }));
 
 // MongoDB connection URI from .env file
 const mongoURI = process.env.MONGO_URI; 
