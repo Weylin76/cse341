@@ -12,6 +12,12 @@ router.get("/contacts", contactController.getContacts);
 // Get a single person by ID
 router.get("/contacts/:id", contactController.getPersonById);
 
+//Add a person to the DB
+router.post("/contacts", contactController.addContact);
+
+// Delete a contact from the DB by ID
+router.delete("/contacts/:id", contactController.deleteContact);
+
 // Update a contact
 router.put("/update/:id", contactController.updateContact);
 
