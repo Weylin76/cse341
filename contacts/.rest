@@ -32,3 +32,11 @@ GET  https://cse341-personal-page.onrender.com/contacts HTTP/1.1
 
 ### Render show one contact (Ethan)
 GET  https://cse341-personal-page.onrender.com/contacts/66f71d4441a308804350ecf2 HTTP/1.1
+
+###Update a contact's information
+PUT https://cse341-personal-page.onrender.com/update/66f71cb441a308804350ecf0 HTTP/1.1
+Content-Type: application/json
+
+{
+  "firstName": "Tori"
+}
