@@ -7,10 +7,10 @@ const contactController = require("../controllers/contactController");
 router.get('/', nameController.getName);
 
 //Get people route
-router.get("/contact", contactController.getContacts);
+router.get("/contacts", contactController.getContacts);
 
 //Get a person from the db
-router.get("/contact/:id", contactController.getPersonById)
+router.get("/contacts/:id", contactController.getPersonById)
 
 module.exports = router;
 
