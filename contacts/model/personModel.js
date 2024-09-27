@@ -9,7 +9,7 @@ const personSchema = new mongoose.Schema({
     birthday: Date
 });
 
-// Create a model based on the schema, explicitly set collection name to 'people'
+// Create a model
 const Person = mongoose.model("Person", personSchema, 'people'); 
 
 module.exports = Person;

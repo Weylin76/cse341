@@ -1,7 +1,7 @@
 const Person = require("../model/personModel");
 
 // Controller function to fetch all people
-exports.getContacts = async (req, res) => {
+const getContacts = async (req, res) => {
     try {
         const people = await Person.find(); // grab all records for collection
         res.status(200).json(people); // if successful send response
@@ -11,7 +11,7 @@ exports.getContacts = async (req, res) => {
 };
 
 // Controller function to fetch a person by ID
-exports.getPersonById = async (req, res) => {
+const getPersonById = async (req, res) => {
     try {
         const person = await Person.findById(req.params.id); // Fetch a single record based on the ID
         if (!person) {
@@ -24,7 +24,7 @@ exports.getPersonById = async (req, res) => {
 };
 
 // Update an existing contact
-exports.updateContact = async (req, res) => {
+const updateContact = async (req, res) => {
     const contactId = req.params.id;
     const updatedData = req.body;
 
@@ -50,4 +50,11 @@ exports.updateContact = async (req, res) => {
             error: error.message
         });
     }
+};
+
+// Export all controller functions at the end
+module.exports = {
+    getContacts,
+    getPersonById,
+    updateContact
 };
