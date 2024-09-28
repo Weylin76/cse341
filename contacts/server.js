@@ -1,35 +1,54 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const path = require("path");
 const dotenv = require("dotenv");
 const indexRouter = require("./routes/index");
+const swaggerAutogen = require('swagger-autogen')();
+const swaggerUi = require('swagger-ui-express');
 
-dotenv.config(); //secure connection
+dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3000; // use website port or local host
+const port = process.env.PORT || 3000;
 
-// Middleware to parse incoming JSON requests
-app.use(express.json()); 
+const doc = {
+    info: {
+        title: 'My API',
+        description: 'API Documentation',
+    },
+    host: process.env.HOST || `localhost:${port}`,
+    schemes: ['http'],
+};
 
-// MongoDB connection URI from .env file
-const mongoURI = process.env.MONGO_URI; 
+const outputFile = './swagger-output.json';
+const endpointsFiles = ['./routes/index.js'];
 
-// Connect to MongoDB
-mongoose.connect(mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-.then(() => console.log("MongoDB connected successfully"))
-.catch((err) => {
-    console.error("Error connecting to MongoDB:", err.message);
-    process.exit(1); // Exit if there's a connection error
+// Generate Swagger documentation
+swaggerAutogen(outputFile, endpointsFiles, doc).then(() => {
+    // Middleware to parse incoming JSON requests
+    app.use(express.json());
+
+    // MongoDB connection URI from .env file
+    const mongoURI = process.env.MONGO_URI;
+
+    // Connect to MongoDB without deprecated options
+    mongoose.connect(mongoURI)
+        .then(() => console.log("MongoDB connected successfully"))
+        .catch((err) => {
+            console.error("Error connecting to MongoDB:", err.message);
+            process.exit(1);
+        });
+
+    // Use the router
+    app.use("/", indexRouter);
+
+    // Serve Swagger UI
+    const swaggerDocument = require('./swagger-output.json');
+    app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+    // Start the server
+    app.listen(port, () => {
+        console.log(`Server is running on http://localhost:${port}`);
+    });
 });
 
-// Use the router
-app.use("/", indexRouter);
 
-// Start the server
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
-});
