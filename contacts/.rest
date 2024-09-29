@@ -55,11 +55,11 @@ POST https://cse341-personal-page.onrender.com/contacts HTTP/1.1
 Content-Type: application/json
 
 {
-  "firstName": "Cocoa",
+  "firstName": "Sammy",
   "lastName": "Douglas",
-  "email": "Cocoa@gamil.com",
+  "email": "Sammy@gmail.com",
   "favoriteColor": "black",
-  "birthday": "2010-04-20"
+  "birthday": "2009-04-20"
 }
 
 ### Delete a contact by ID### Delete a contact by ID
@@ -72,5 +72,5 @@ PUT https://cse341-personal-page.onrender.com/update/66f71cb441a308804350ecf0 HT
 Content-Type: application/json
 
 {
-  "firstName": "Victoria"
+  "firstName": "Tori"
 }
